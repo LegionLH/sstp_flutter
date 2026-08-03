@@ -6,6 +6,7 @@ class SSTPServer {
   final int port;
   final String username;
   final String password;
+  final String? sni;
   final SSTPAndroidConfiguration androidConfiguration;
   final SSTPIOSConfiguration iosConfiguration;
 
@@ -14,6 +15,7 @@ class SSTPServer {
       this.port = 443,
       required this.username,
       required this.password,
+      this.sni,
       required this.androidConfiguration,
       required this.iosConfiguration});
 }

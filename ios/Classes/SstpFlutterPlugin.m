@@ -18,6 +18,7 @@
 
 @property (nonatomic, assign) BOOL isObserverAdded;
 @property (nonatomic,strong) NodeModel * modal;
+@property (nonatomic, copy) NSString * localizedDescription;
 
 @end
 
@@ -57,10 +58,16 @@
           self.isObserverAdded = YES;
       }
       
+      if (self.localizedDescription.length > 0) {
+          [PDVPNManager setVPNLocalizedDescription:self.localizedDescription];
+      }
+      
       [[PDVPNManager sharedManager] setupVPNManager];
 
       result(@(YES));
   }else if([@"saveServer" isEqualToString:call.method]){
+      
+      self.localizedDescription = [NSString stringWithFormat:@"%@", call.arguments[@"localizedDescription"] ?: @""];
       
       self.modal = [[NodeModel alloc] init];
       self.modal.nodeName = @"SSTP";
@@ -124,4 +131,3 @@
     }
 }
 @end
-
