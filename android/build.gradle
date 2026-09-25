@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdk 33
+    compileSdk 36
     if (project.android.hasProperty("namespace")) {
         namespace 'com.example.sstp_flutter'
     }
